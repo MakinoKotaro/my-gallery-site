@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>多階層スライダー＋制作情報</title>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Zen Maru Gothic', sans-serif;
+      background-color: #F5F5FA;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .outer-slider {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .gallery-wrapper {
+      display: flex;
+      transition: transform 0.5s ease;
+      width: 100%;
+    }
+
+    .gallery {
+      flex: 0 0 100%;
+      padding: 20px;
+      box-sizing: border-box;
+      text-align: center;
+      position: relative;
+    }
+
+    .gallery-title {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #2a1f62;
+    }
+
+    .inner-slider {
+      position: relative;
+      width: 640px;
+      height: 360px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .inner-track {
+      display: flex;
+      transition: transform 0.5s ease;
+      width: max-content;
+    }
+
+    .gallery-image {
+      flex: 0 0 640px;
+      height: 360px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .outer-button {
+      position: absolute;
+      top: 220px;
+      transform: none;
+      background-color: white;
+      border: none;
+      font-size: 2rem;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      z-index: 10;
+    }
+
+    .outer-button:hover {
+      background-color: #f0f0f0;
+    }
+
+    .outer-prev { left: 10px; }
+    .outer-next { right: 10px; }
+
+    .inner-nav {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .inner-button {
+      background-color: white;
+      border: none;
+      font-size: 2rem;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      transition: 0.2s;
+    }
+
+    .inner-button:hover {
+      background-color: #f0f0f0;
+    }
+
+    .info-section {
+      margin-top: 30px;
+      text-align: left;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .info-section h3 {
+      color: #2a1f62;
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+
+    .info-section p {
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 700px) {
+      .inner-slider {
+        width: 100%;
+        height: auto;
+      }
+      .gallery-image {
+        width: 100%;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<h1>多階層スライダー＋制作情報</h1>
+
+<div class="outer-slider">
+  <button class="outer-button outer-prev">＜</button>
+  <button class="outer-button outer-next">＞</button>
+
+  <div class="gallery-wrapper" id="galleryWrapper">
+
+    <!-- ギャラリー1 -->
+    <div class="gallery">
+      <div class="gallery-title">BeShop</div>
+      <div class="inner-slider">
+        <div class="inner-track" id="innerTrack0">
+          <img src="images/image1.png" class="gallery-image" alt="">
+          <img src="images/image2.png" class="gallery-image" alt="">
+          <img src="images/image3.png" class="gallery-image" alt="">
+		  <video class="gallery-image" controls>
+			<source src="videos/BeShopVideo.mp4" type="video/mp4">
+			お使いのブラウザは video タグに対応していません。
+		  </video>
+        </div>
+      </div>
+      <div class="inner-nav">
+        <button class="inner-button" onclick="slideInner(0, -1)">◀</button>
+        <button class="inner-button" onclick="slideInner(0, 1)">▶</button>
+      </div>
+
+      <div class="info-section">
+        <h3>制作人数・期間</h3>
+		<ul>
+			<li><strong>制作人数</strong>：1人</li>
+			<li><strong>制作期間</strong>：2024年9月〜（現在も開発中）</li>
+		</ul>
+        <h3>制作目的</h3><p>個人制作の課題として取り組んでいます。技術力の向上と、オリジナルのアクションゲームを1から構築する経験を目的としています。</p>
+        <h3>開発環境</h3>
+		<ul>
+			<li>OS：Windows</li>
+			<li>使用エンジン：Unity 2022.3.21f1</li>
+			<li>制使用言語：C#</li>
+		</ul>
+        <h3>作品概要</h3>
+		<ul>
+			<li><strong>ジャンル</strong>：3Dアクションゲーム</li>
+			<li><strong>プラットフォーム</strong>：PC</li>
+			<li><strong>コンセプト</strong>：「敵を倒してお金を稼ぎ、魔法で道を切り開く」</li>
+			<li><strong>特徴</strong>：お金がキーとなるアクション性と戦略性を融合したゲーム</li>
+		</ul>
+        <h3>ゲームの流れと特徴</h3>
+		  <ul>
+			<li>ステージ制で、敵を倒すことでお金を入手</li>
+			<li>入手したお金で自分を強化し、宝箱を開ける鍵や魔法を購入</li>
+			<li>ステージを進んでボスを倒すのが目的</li>
+		  </ul>
+        <h3>独自のシステム・工夫点</h3>
+		  <ul>
+			<li>ScriptableObject による魔法・アイテムの柔軟な管理</li>
+			<li>魔法の切り替えはドラッグ＆ドロップ操作に対応し、直感的なUIを実現</li>
+		  </ul>
+        <h3>担当範囲</h3>
+			<p>すべて（企画、プログラミング、デザイン、演出）</p>	
+        <h3>技術的ポイント・工夫した設計</h3>
+		  <ul>
+			<li><strong>データ管理：</strong> JSON形式でセーブデータを保存し、プレイヤーの状態や所持アイテムを永続的に管理</li>
+			<li><strong>オブジェクト指向設計：</strong> C#の継承やインターフェースを積極的に活用し、モンスターや魔法などの処理を効率的に拡張・管理可能に</li>
+			<li><strong>ScriptableObject連携：</strong> ScriptableObjectとコードを連携させることで、ゲームバランスの調整をコードレスで行える設計に</li>
+		  </ul>
+        <h3>開発中に直面した課題と解決策</h3>
+		  <ul>
+			<li><strong>課題：</strong> 購入アイテムの性質（加算系・乗算系など）が判別できず、効果の処理が煩雑に</li>
+			<li><strong>解決策：</strong> ScriptableObjectに加算／乗算の区別や特殊効果フラグを追加し、処理の分岐を明確化</li>
+		  </ul>
+        <h3>演出・世界観の工夫</h3>
+		<ul>
+			<li>ローポリ調のファンタジー世界で統一感を持たせ、親しみやすい雰囲気に</li>
+			<li>ボス戦直前にはカットシーンを用意し、臨場感ある戦闘導入を演出</li>
+		  </ul>
+        <h3>まとめ</h3>
+		  <p><strong>学んだこと</strong></p>
+		  <ul>
+			<li>C#での継承・インターフェースを用いた設計（オブジェクト指向プログラミング）</li>
+			<li>JSONやScriptableObjectによる柔軟なデータ管理</li>
+			<li>Unityの要素（Cinemachine、DoTween、PostProcessing）による演出力の強化</li>
+		  </ul>
+      </div>
+    </div>
+
+    <!-- ギャラリー2 -->
+    <div class="gallery">
+      <div class="gallery-title">ギャラリー2</div>
+      <div class="inner-slider">
+        <div class="inner-track" id="innerTrack1">
+          <img src="images/image4.png" class="gallery-image" alt="">
+          <img src="images/image1.png" class="gallery-image" alt="">
+          <img src="images/image2.png" class="gallery-image" alt="">
+        </div>
+      </div>
+      <div class="inner-nav">
+        <button class="inner-button" onclick="slideInner(1, -1)">◀</button>
+        <button class="inner-button" onclick="slideInner(1, 1)">▶</button>
+      </div>
+
+      <div class="info-section">
+        <!-- 同じ12項目 -->
+        <h3>制作人数・期間</h3><p>ここに記述</p>
+        <h3>制作目的</h3><p>ここに記述</p>
+        <h3>開発環境</h3><p>ここに記述</p>
+        <h3>作品概要</h3><p>ここに記述</p>
+        <h3>ゲームの流れと特徴</h3><p>ここに記述</p>
+        <h3>独自のシステム・工夫点</h3><p>ここに記述</p>
+        <h3>担当範囲</h3><p>ここに記述</p>
+        <h3>技術的ポイント・工夫した設計</h3><p>ここに記述</p>
+        <h3>開発中に直面した課題と解決策</h3><p>ここに記述</p>
+        <h3>演出・世界観の工夫</h3><p>ここに記述</p>
+        <h3>まとめ & 志望動機との関連</h3><p>ここに記述</p>
+      </div>
+    </div>
+
+    <!-- ギャラリー3 -->
+    <div class="gallery">
+      <div class="gallery-title">ギャラリー3</div>
+      <div class="inner-slider">
+        <div class="inner-track" id="innerTrack2">
+          <img src="images/image3.png" class="gallery-image" alt="">
+          <img src="images/image4.png" class="gallery-image" alt="">
+        </div>
+      </div>
+      <div class="inner-nav">
+        <button class="inner-button" onclick="slideInner(2, -1)">◀</button>
+        <button class="inner-button" onclick="slideInner(2, 1)">▶</button>
+      </div>
+
+      <div class="info-section">
+        <!-- 同じ12項目 -->
+        <h3>制作人数・期間</h3><p>ここに記述</p>
+        <h3>制作目的</h3><p>ここに記述</p>
+        <h3>開発環境</h3><p>ここに記述</p>
+        <h3>作品概要</h3><p>ここに記述</p>
+        <h3>ゲームの流れと特徴</h3><p>ここに記述</p>
+        <h3>独自のシステム・工夫点</h3><p>ここに記述</p>
+        <h3>担当範囲</h3><p>ここに記述</p>
+        <h3>技術的ポイント・工夫した設計</h3><p>ここに記述</p>
+        <h3>開発中に直面した課題と解決策</h3><p>ここに記述</p>
+        <h3>演出・世界観の工夫</h3><p>ここに記述</p>
+        <h3>まとめ & 志望動機との関連</h3><p>ここに記述</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  let outerIndex = 0;
+  const galleryWrapper = document.getElementById('galleryWrapper');
+  const totalGalleries = galleryWrapper.children.length;
+  const innerIndexes = [0, 0, 0]; // ギャラリー数に応じて
+
+  function slideOuter(direction) {
+    outerIndex = Math.max(0, Math.min(outerIndex + direction, totalGalleries - 1));
+    galleryWrapper.style.transform = `translateX(-${outerIndex * 100}%)`;
+    startAutoSlide(outerIndex);
+  }
+
+  document.querySelector('.outer-prev').addEventListener('click', () => slideOuter(-1));
+  document.querySelector('.outer-next').addEventListener('click', () => slideOuter(1));
+
+  function slideInner(galleryNum, direction) {
+    const track = document.getElementById(`innerTrack${galleryNum}`);
+    const totalSlides = track.children.length;
+    innerIndexes[galleryNum] = Math.max(0, Math.min(innerIndexes[galleryNum] + direction, totalSlides - 1));
+    track.style.transform = `translateX(-${innerIndexes[galleryNum] * 640}px)`;
+  }
+
+  // 自動スライド機能
+  let autoSlideInterval = null;
+  function startAutoSlide(galleryNum) {
+    if (autoSlideInterval) clearInterval(autoSlideInterval);
+    autoSlideInterval = setInterval(() => {
+      const track = document.getElementById(`innerTrack${galleryNum}`);
+      const totalSlides = track.children.length;
+      innerIndexes[galleryNum] = (innerIndexes[galleryNum] + 1) % totalSlides;
+      track.style.transform = `translateX(-${innerIndexes[galleryNum] * 640}px)`;
+    }, 3000);
+  }
+
+  // 初期化：最初のギャラリーに自動スライド設定
+  window.addEventListener('DOMContentLoaded', () => {
+    startAutoSlide(0);
+  });
+</script>
+
+</body>
+</html>
