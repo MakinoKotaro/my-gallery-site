@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>多階層スライダー＋制作情報</title>
+  <title>制作物一覧</title>
   <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
   <style>
     body {
@@ -58,11 +58,14 @@
       width: max-content;
     }
 
-    .gallery-image {
-      flex: 0 0 640px;
+    .gallery-image,
+    .gallery-video {
+      width: 640px;
       height: 360px;
+      flex: 0 0 640px;
       object-fit: cover;
       border-radius: 8px;
+      background: black;
     }
 
     .outer-button {
@@ -126,7 +129,7 @@
       margin-bottom: 5px;
     }
 
-    .info-section p {
+    .info-section p, .info-section ul {
       margin-bottom: 15px;
       line-height: 1.6;
     }
@@ -136,7 +139,8 @@
         width: 100%;
         height: auto;
       }
-      .gallery-image {
+      .gallery-image,
+      .gallery-video {
         width: 100%;
         height: auto;
       }
@@ -145,7 +149,7 @@
 </head>
 <body>
 
-<h1>多階層スライダー＋制作情報</h1>
+<h1>制作物一覧</h1>
 
 <div class="outer-slider">
   <button class="outer-button outer-prev">＜</button>
@@ -227,13 +231,19 @@
 			<li>C#での継承・インターフェースを用いた設計（オブジェクト指向プログラミング）</li>
 			<li>JSONやScriptableObjectによる柔軟なデータ管理</li>
 			<li>Unityの要素（Cinemachine、DoTween、PostProcessing）による演出力の強化</li>
+			<a href = "https://drive.google.com/drive/folders/1yY2mUtiFG7b-Aafm8BLjwky5lKrugLxs?usp=drive_link"
+			       target = "_blank"
+			       rel = "noopener noreferrer"
+			       onclick = "return confirmExternalLink(event)" >
+			       ゲームダウンロード（exeファイルが含まれます。）
+			       </a>
 		  </ul>
       </div>
     </div>
 
     <!-- ギャラリー2 -->
     <div class="gallery">
-      <div class="gallery-title">ギャラリー2</div>
+      <div class="gallery-title">いつわりの記憶</div>
       <div class="inner-slider">
         <div class="inner-track" id="innerTrack1">
           <img src="images/image4.png" class="gallery-image" alt="">
@@ -247,24 +257,73 @@
       </div>
 
       <div class="info-section">
-        <!-- 同じ12項目 -->
-        <h3>制作人数・期間</h3><p>ここに記述</p>
-        <h3>制作目的</h3><p>ここに記述</p>
-        <h3>開発環境</h3><p>ここに記述</p>
-        <h3>作品概要</h3><p>ここに記述</p>
-        <h3>ゲームの流れと特徴</h3><p>ここに記述</p>
-        <h3>独自のシステム・工夫点</h3><p>ここに記述</p>
-        <h3>担当範囲</h3><p>ここに記述</p>
-        <h3>技術的ポイント・工夫した設計</h3><p>ここに記述</p>
-        <h3>開発中に直面した課題と解決策</h3><p>ここに記述</p>
-        <h3>演出・世界観の工夫</h3><p>ここに記述</p>
-        <h3>まとめ & 志望動機との関連</h3><p>ここに記述</p>
+        <h3>制作人数・期間</h3>
+		<ul>
+			<li><strong>制作人数</strong>：1人</li>
+			<li><strong>制作期間</strong>：2025年4月14日(月) 0時 〜 2025年4月20日(日) 20時</li>
+		</ul>
+        <h3>制作目的</h3><p>Unityroomというサイトのゲームジャムに参加するため。</p>
+        <h3>開発環境</h3>
+		<ul>
+			<li>OS：Windows</li>
+			<li>使用エンジン：Unity 2022.3.21f1</li>
+			<li>制使用言語：C#</li>
+		</ul>
+        <h3>作品概要</h3>
+		<ul>
+			<li><strong>ジャンル</strong>：ボードゲーム</li>
+			<li><strong>プラットフォーム</strong>：PC</li>
+			<li><strong>コンセプト</strong>：「あいまいな記憶をたよりに神経衰弱をしよう」</li>
+			<li><strong>特徴</strong>：偽物のカードかもしれない「いつもよりもっと疑心暗鬼な神経衰弱」</li>
+		</ul>
+        <h3>ゲームの流れと特徴</h3>
+		  <ul>
+			<li>カードをめくっていくとカードを見破ることができるようになる</li>
+			<li>その瞬間しか真のカードの数字がわからないので、しっかりと記憶する</li>
+			<li>強制ペアモードで数字がそろっていなくても無理やりペアを作っていく</li>
+			<li>ペアを作ってスコアを稼ぐのが目的</li>
+		  </ul>
+        <h3>独自のシステム・工夫点</h3>
+		  <ul>
+			<li>DoTwennを利用したアニメーション作成</li>
+			<li>強制ペアモードでのストレスフリーなシステムの実現</li>
+		  </ul>
+        <h3>担当範囲</h3>
+			<p>すべて（企画、プログラミング、デザイン、演出）</p>	
+        <h3>技術的ポイント・工夫した設計</h3>
+		  <ul>
+			<li><strong>データ管理：</strong> PlayerPrefsでスコアやペアを管理し、短い期間に間に合うようにしました。</li>
+			<li><strong>演出へのこだわり：</strong> 内容がシンプルなので、見た目と演出にこだわりました。</li>
+		  </ul>
+        <h3>開発中に直面した課題と解決策</h3>
+		  <ul>
+			<li><strong>課題：</strong> ペアになったカードが左右反転されて表示してしまう。</li>
+			<li><strong>解決策：</strong> 2枚目のカードを選択した際に両方のカードの位置情報を取得して、どちらが右かを判定するようにしました。</li>
+		  </ul>
+        <h3>演出・世界観の工夫</h3>
+		<ul>
+			<li>ゲームジャムのお題が「あい」だったので、哀しい雰囲気にしました。</li>
+			<li>見た目を複雑にするとわかりづらくなってしまうので、できるだけ要素を省きシンプルな作品にしました。</li>
+		  </ul>
+        <h3>まとめ</h3>
+		  <p><strong>学んだこと</strong></p>
+		  <ul>
+			<li>短期間でのゲーム制作の際の効率的なプログラムの書き方</li>
+			<li>ユーザーが楽しめるような演出の作り方</li>
+			    <a href = "https://unityroom.com/games/fakememory"
+			       target = "_blank"
+			       rel = "noopener noreferrer"
+			       onclick = "return confirmExternalLink(event)" >
+			       ゲームページ
+			       </a>
+		 
+		  </ul>
       </div>
     </div>
 
     <!-- ギャラリー3 -->
     <div class="gallery">
-      <div class="gallery-title">ギャラリー3</div>
+      <div class="gallery-title">つなげてゼリー！</div>
       <div class="inner-slider">
         <div class="inner-track" id="innerTrack2">
           <img src="images/image3.png" class="gallery-image" alt="">
@@ -277,29 +336,78 @@
       </div>
 
       <div class="info-section">
-        <!-- 同じ12項目 -->
-        <h3>制作人数・期間</h3><p>ここに記述</p>
-        <h3>制作目的</h3><p>ここに記述</p>
-        <h3>開発環境</h3><p>ここに記述</p>
-        <h3>作品概要</h3><p>ここに記述</p>
-        <h3>ゲームの流れと特徴</h3><p>ここに記述</p>
-        <h3>独自のシステム・工夫点</h3><p>ここに記述</p>
-        <h3>担当範囲</h3><p>ここに記述</p>
-        <h3>技術的ポイント・工夫した設計</h3><p>ここに記述</p>
-        <h3>開発中に直面した課題と解決策</h3><p>ここに記述</p>
-        <h3>演出・世界観の工夫</h3><p>ここに記述</p>
-        <h3>まとめ & 志望動機との関連</h3><p>ここに記述</p>
+        <h3>制作人数・期間</h3>
+		<ul>
+			<li><strong>制作人数</strong>：4人</li>
+			<li><strong>制作期間</strong>：2025年3月31日(月) 0時 〜 2025年4月10日(木)</li>
+		</ul>
+        <h3>制作目的</h3><p>学校内のゲームジャムに参加するため。</p>
+        <h3>開発環境</h3>
+		<ul>
+			<li>OS：Windows</li>
+			<li>使用エンジン：Unity 2022.3.21f1</li>
+			<li>制使用言語：C#</li>
+		</ul>
+        <h3>作品概要</h3>
+		<ul>
+			<li><strong>ジャンル</strong>：パズルゲーム</li>
+			<li><strong>プラットフォーム</strong>：PC</li>
+			<li><strong>コンセプト</strong>：「くっつく × パズルゲーム」</li>
+			<li><strong>特徴</strong>：すべてをつなげてクリアを目指す2Dパズルゲーム</li>
+		</ul>
+        <h3>ゲームの流れと特徴</h3>
+		  <ul>
+			<li>同じ色ゼリーはくっつく</li>
+			<li>マウスのドラック操作で動かす</li>
+			<li>ステージにあるゼリーを全部くっつけたらゲームクリア</li>
+		  </ul>
+        <h3>独自のシステム・工夫点</h3>
+		  <ul>
+			<li>同色で隣り合ったらくっつくというシステム</li>
+			<li>複数がくっついた際の移動できるかの判定</li>
+		  </ul>
+        <h3>担当範囲</h3>
+			<p>メインプログラム（キャラクターの挙動、当たり判定、アニメーション、クリア条件の判定）</p>	
+        <h3>技術的ポイント・工夫した設計</h3>
+		  <ul>
+			<li><strong>複数合体時の挙動：</strong> すべての面に2つずつコライダーを設置し、管理することで「移動可能か」、「落下するのか」などの条件を判定しました。</li>
+			<li><strong>演出へのこだわり：</strong> 内容がシンプルなので、見た目と演出にこだわりました。</li>
+		  </ul>
+        <h3>開発中に直面した課題と解決策</h3>
+		  <ul>
+			<li><strong>課題：</strong> キャラクターが落下しなかったり、地面に埋まったりする。</li>
+			<li><strong>解決策：</strong> 合体したすべてのキャラを対象に落下判定を取っていたのが問題だったので、接地しているもののみを判定材料にすることで解決しました。</li>
+		  </ul>
+        <h3>演出・世界観の工夫</h3>
+		<ul>
+			<li>キャラクターがゼリーなので、クリックしている最中はプルプルと震えるようなアニメーションを設定しました。</li>
+			<li>かわいい雰囲気のゲームにするためになるべく単色で明るめの色で統一しました。</li>
+		  </ul>
+        <h3>まとめ</h3>
+		  <p><strong>学んだこと</strong></p>
+		  <ul>
+			<li>チーム制作での役割と行動すべきことを考える機会になりました。</li>
+			<li>複雑な条件の処理</li>
+			    <a href = "https://unityroom.com/games/fakememory"
+			       target = "_blank"
+			       rel = "noopener noreferrer"
+			       onclick = "return confirmExternalLink(event)" >
+			       ゲームダウンロード（exeファイルが含まれます。）
+			       </a>
+		 
+		  </ul>
       </div>
     </div>
 
   </div>
 </div>
 
+
 <script>
   let outerIndex = 0;
   const galleryWrapper = document.getElementById('galleryWrapper');
   const totalGalleries = galleryWrapper.children.length;
-  const innerIndexes = [0, 0, 0]; // ギャラリー数に応じて
+  const innerIndexes = [0, 0, 0]; // ギャラリー数に応じて拡張
 
   function slideOuter(direction) {
     outerIndex = Math.max(0, Math.min(outerIndex + direction, totalGalleries - 1));
@@ -311,13 +419,15 @@
   document.querySelector('.outer-next').addEventListener('click', () => slideOuter(1));
 
   function slideInner(galleryNum, direction) {
-    const track = document.getElementById(`innerTrack${galleryNum}`);
-    const totalSlides = track.children.length;
-    innerIndexes[galleryNum] = Math.max(0, Math.min(innerIndexes[galleryNum] + direction, totalSlides - 1));
-    track.style.transform = `translateX(-${innerIndexes[galleryNum] * 640}px)`;
-  }
+  const track = document.getElementById(`innerTrack${galleryNum}`);
+  const totalSlides = track.children.length;
+  innerIndexes[galleryNum] = Math.max(0, Math.min(innerIndexes[galleryNum] + direction, totalSlides - 1));
+  track.style.transform = `translateX(-${innerIndexes[galleryNum] * 640}px)`;
 
-  // 自動スライド機能
+
+  startAutoSlide(galleryNum);
+}
+
   let autoSlideInterval = null;
   function startAutoSlide(galleryNum) {
     if (autoSlideInterval) clearInterval(autoSlideInterval);
@@ -329,10 +439,30 @@
     }, 3000);
   }
 
-  // 初期化：最初のギャラリーに自動スライド設定
-  window.addEventListener('DOMContentLoaded', () => {
-    startAutoSlide(0);
-  });
+  window.onload = () => {
+		// 全ギャラリー内の inner-slider にマウスイベントを設定
+	const sliders = document.querySelectorAll('.inner-slider');
+
+	sliders.forEach((slider, index) => {
+	  slider.addEventListener('mouseenter', () => {
+		if (autoSlideInterval) clearInterval(autoSlideInterval);
+	  });
+
+	  slider.addEventListener('mouseleave', () => {
+		startAutoSlide(index);
+	  });
+	});
+  };
+  
+  function confirmExternalLink(event) {
+      const confirmed = confirm("別のサイトへ移動します。よろしいですか？");
+      if (!confirmed) {
+          event.preventDefault(); // キャンセルされたらリンク遷移を止める
+          return false;
+      }
+      return true;
+  }
+			  
 </script>
 
 </body>
